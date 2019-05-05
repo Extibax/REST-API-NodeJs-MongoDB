@@ -7,10 +7,9 @@ dotenv.config();
 export async function connect() {
   try {
     const client = await MongoClient.connect(
-      `mongodb+srv://
-      ${process.env.DB_USER}:
-      ${process.env.DB_PASS}
-      @demos-xba50.mongodb.net/test?retryWrites=true`,
+      `mongodb+srv://${process.env.DB_USER}:${
+        process.env.DB_PASS
+      }@demos-xba50.mongodb.net/test?retryWrites=true`,
       {
         useNewUrlParser: true
       }
