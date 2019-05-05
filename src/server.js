@@ -1,6 +1,8 @@
 import express, { json } from "express";
+import path from 'path';
 
-import technologies_route from "./routes/technologies.routes";
+import index_router from './routes/index.routes';
+import technologies_router from "./routes/technologies.routes";
 
 const app = express();
 
@@ -9,8 +11,12 @@ app.use(json());
 
 /* Settings */
 app.set("port", process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* Routes */
-app.use(technologies_route);
+app.use(index_router);
+app.use('/technologies', technologies_router);
 
 export default app;

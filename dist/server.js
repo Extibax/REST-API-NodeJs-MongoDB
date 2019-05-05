@@ -7,6 +7,10 @@ exports["default"] = void 0;
 
 var _express = _interopRequireWildcard(require("express"));
 
+var _path = _interopRequireDefault(require("path"));
+
+var _index = _interopRequireDefault(require("./routes/index.routes"));
+
 var _technologies = _interopRequireDefault(require("./routes/technologies.routes"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -20,8 +24,12 @@ app.use((0, _express.json)());
 /* Settings */
 
 app.set("port", process.env.PORT || 3000);
+app.set('views', _path["default"].join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(_express["default"]["static"](_path["default"].join(__dirname, 'public')));
 /* Routes */
 
-app.use(_technologies["default"]);
+app.use(_index["default"]);
+app.use('/technologies', _technologies["default"]);
 var _default = app;
 exports["default"] = _default;
