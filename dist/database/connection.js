@@ -33,14 +33,14 @@ function _connect() {
           case 0:
             _context.prev = 0;
             _context.next = 3;
-            return _mongodb["default"].connect("mongodb+srv://".concat(process.env.DB_USER, ":").concat(process.env.DB_PASS, "@demos-xba50.mongodb.net/test?retryWrites=true"), {
+            return _mongodb["default"].connect("mongodb+srv://\n      ".concat(process.env.DB_USER, ":\n      ").concat(process.env.DB_PASS, "\n      @demos-xba50.mongodb.net/test?retryWrites=true"), {
               useNewUrlParser: true
             });
 
           case 3:
             client = _context.sent;
-            database = client.db('programming_languages');
-            console.log('Data base is Ok'.america);
+            database = client.db("programming_languages");
+            console.log("Data base is Ok".america);
             return _context.abrupt("return", database);
 
           case 9:

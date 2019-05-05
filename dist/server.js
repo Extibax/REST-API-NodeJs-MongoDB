@@ -19,7 +19,7 @@ var app = (0, _express["default"])();
 app.use((0, _express.json)());
 /* Settings */
 
-app.set('port', process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3000);
 /* Routes */
 
 app.use(_technologies["default"]);
