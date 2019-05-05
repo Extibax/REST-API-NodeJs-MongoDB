@@ -4,8 +4,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log(process.env.DB_USER);
-
 import server from './server';
 
 const port = server.get('port');
