@@ -8,20 +8,13 @@ This is a REST API with NodeJs as Back-End and MongoDB as Data Base, This APi is
 ### Step 1: Install all dependencies of the project:
 ```npm
 npm install
+npm install --production
 ```
 ### Step 2: Run the server:
 ```npm
-npm start
-```
-## If you want run the development code, You need install devDependencies, So run:
-```npm
-npm install --production
-```
-### After run
-```npm
 npm run dev
 ```
-
+## Info: The connection to MongoDB have to ways: The first is a connection to MongoDB Atlas (Remote) or to MongoDB local (localhost), If you don't have the DB_USER & DB_PASS environment variables, The connection automaticaly connecto to the localhost MongoDB
 ## I recommend you use Postman: https://www.getpostman.com/ or Insomnia: https://insomnia.rest/ to fetch the API
 
 ### Languages, Technologies & Libraries Used
