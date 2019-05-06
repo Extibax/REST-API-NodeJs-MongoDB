@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { ObjectID } from "mongodb";
+import fs from "fs";
 
 import { connect } from "../database/connection";
 
@@ -9,9 +10,43 @@ const router = Router();
 router.get("/", async (req, res) => {
   try {
     const database = await connect();
-    const result = await database
+    let result = await database
       .collection("technologies")
-      .find()
+      .find({})
+      .toArray();
+    if (result.length < 1) {
+      const default_content = await database
+        .collection("technologies")
+        .insertMany([
+          {
+            name: "NodeJs",
+            like: "yes",
+            info: {
+              experience: "yes",
+              description: "¡Is awesome and minimalist!"
+            }
+          },
+          {
+            name: "Express",
+            like: "yes",
+            info: {
+              experience: "yes",
+              description: "Is very modern"
+            }
+          },
+          {
+            name: "PHP",
+            like: "yes",
+            info: {
+              experience: "yes",
+              description: "Is very strong in the Back-End"
+            }
+          }
+        ]);
+    }
+    result = await database
+      .collection("technologies")
+      .find({})
       .toArray();
     console.log(result);
     res.json(result);
